@@ -55,3 +55,8 @@ menuButton.addEventListener('click', () => {
   const menuDiv = document.querySelector('.menu')
   menuDiv.classList.toggle('menu--open');
 });
+
+const headerMenu = document.querySelector('.header');
+const mainMenu = menuMaker(menuItems)
+
+headerMenu.appendChild(mainMenu)
