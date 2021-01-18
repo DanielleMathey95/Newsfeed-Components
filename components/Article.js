@@ -122,4 +122,36 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
   const paragraphTwo = document.createElement('p');
   const paragraphThree = document.createElement('p');
   const expandButton = document.createElement('span');
+
+
+article.appendChild(articleTitle);
+article.appendChild(articleDate);
+article.appendChild(paragraphOne);
+article.appendChild(paragraphTwo);
+article.appendChild(paragraphThree);
+article.appendChild(expandButton);
+
+article.classList.add('article');
+article.classList.add('date');
+expandButton.classList.add('expandButton');
+
+article.addEventListener('click', () => {
+  article.classList.toggle('article-open');
+})
+
+articleTitle.textContent = title;
+articleDate.textContent = date;
+paragraphOne.textContent = firstParagraph;
+paragraphTwo.textContent = secondParagraph;
+paragraphThree.textContent = thirdParagraph;
+expandButton.textContent = 'Read More';
+
+return article;
+
 }
+
+const parentComponent = document.querySelector('.articles');
+data.forEach(data => {
+  const newArticle = createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph);
+  parentComponent.appendChild(newArticle);
+})
